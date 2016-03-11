@@ -40,7 +40,14 @@ setTimeout(flush)
 
 ### queue()
 
-**Returns:** An object containing two functions, `add` and `flush`. These are not on the prototype, so you can destructure them and you can use them without invoking them on the queue. `add` enqueues something and `flush` runs everything in the queue and clears it.
+**Returns:** An object containing two functions, `add` and `flush`:
+
+  * `add(fn)` - Add `fn` to the queue.
+  * `flush()` - Flush the queue - i.e., run all the `fns`, clear the queue, and return an array of their return values.
+
+Note that queue does not use a prototype, so you can call `flush` and `add` without invoking them on the queue object.
+
+
 
 ## License
 
